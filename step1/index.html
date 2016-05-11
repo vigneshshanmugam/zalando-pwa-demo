@@ -4,21 +4,21 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
 	<link rel="manifest" href="./manifest.json"/>
-  <link rel="stylesheet" href="static/styles.css"/>
+  	<link rel="stylesheet" href="static/styles.css"/>
 </head>
 
 <body>
 	<h2>Progressive Web Apps Demo</h2>
-
-  <script src="static/main.js"></script>
+	
 	<script>
 		if ('serviceWorker' in navigator) {
-		  navigator.serviceWorker.register('sw.js').then(function(reg) {
-		    console.log('Registration succeeded. Scope is ' + reg.scope);
+		  navigator.serviceWorker.register('sw.js').then(function() {
+		    console.log('Registration succeeded');
 		  }).catch(function(error) {
 		    console.log('Registration failed with ' + error);
 		  });
 		};
 	</script>
 
+	<script src="static/main.js" async></script>
 </body>

@@ -13,8 +13,8 @@
   <script src="static/main.js"></script>
 	<script>
 		if ('serviceWorker' in navigator) {
-		  navigator.serviceWorker.register('sw.js').then(function(reg) {
-		    console.log('Registration succeeded. Scope is ' + reg.scope);
+		  navigator.serviceWorker.register('sw.js').then(function() {
+		    console.log('Registration succeeded');
 		  }).catch(function(error) {
 		    console.log('Registration failed with ' + error);
 		  });
