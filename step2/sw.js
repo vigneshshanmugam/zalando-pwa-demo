@@ -9,7 +9,7 @@ const CACHENAME = 'zalando-pwa-demo';
  * - Preparation of Service Worker
  * - Populate Cache
  */
-self.addEventListenter('install', function(event) {
+self.addEventListener('install', function(event) {
 
   /**
    * Declare resources
@@ -85,6 +85,13 @@ self.addEventListener('fetch', function(event) {
         // so we simply resolve to this
         return fetchResponse;
       })
+    )
+    .catch(() =>
+      /**
+       * On Error, read from cache
+       */
+      caches.open(CACHENAME)
+        .then(cache => cache.match(event.request))
     );
 
   /**
