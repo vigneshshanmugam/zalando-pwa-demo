@@ -49,7 +49,7 @@ self.addEventListener('activate', function(event) {
   const removeCaches = caches.keys().then(keyList => {
     return Promise.all(
       keyList.map(key => {
-        if (key === CACHENAME) return caches.delete(key);
+        if (key !== CACHENAME) return caches.delete(key);
       })
     );
   });
